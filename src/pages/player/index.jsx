@@ -1,7 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, ScrollView, Image } from '@tarojs/components'
 import MyIcon from "@/components/common/myIcon"
-import { AtSlider, AtActionSheet, AtNavBar } from "taro-ui"
+import { AtSlider, AtActionSheet} from "taro-ui"
 import styles from "./index.module.scss";
 import { connect } from "@tarojs/redux"
 import { timeFilter } from "@/utils/lodash"
@@ -64,11 +64,10 @@ class MyPlayer extends Component {
         Taro.setNavigationBarTitle({
           title: this.state.currentSong.name
         })
-        console.log(this.state.currentSong)
         this.setState({
           isPlay: true
         }, () => {
-          this.refs.audio.play()
+          this.refs.audio.autoplay=true
         })
       })
       // }
@@ -96,7 +95,10 @@ class MyPlayer extends Component {
 
   //监听报错
   handleError = () => {
-    console.log(1)
+    Taro.showToast({
+      title:"暂无权限",
+      icon:"none"
+    })
     this.setState({
       isReady: true
     })
@@ -256,16 +258,6 @@ class MyPlayer extends Component {
     if (!currentSong.al) return
     return (
       <View>
-        <AtNavBar
-          onClickRgIconSt={this.handleClick}
-          onClickRgIconNd={this.handleClick}
-          onClickLeftIcon={this.handleClick}
-          color='#000'
-          title='NavBar 导航栏示例'
-          leftText='返回'
-          rightFirstIconType='bullet-list'
-          rightSecondIconType='user'
-        />
         <audio src={currentSong.url} ref="audio" onCanPlay={this.handleReady} onEnded={this.handleEnd} onError={this.handleError} onTimeUpdate={this.handleUpdateTime}></audio>
         <View className={styles.song_disc}>
           <Image src={currentSong.al.picUrl} className={styles.song_disc_img}></Image>
