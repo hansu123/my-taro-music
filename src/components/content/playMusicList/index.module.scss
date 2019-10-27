@@ -1,0 +1,29 @@
+.list_wrapper{
+    border-radius: 100px;
+    font-size:25px;
+    .list_header{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        padding:10px 20px;
+        box-sizing: border-box;
+        .list_header_left{
+          
+        }
+        .list_header_right{
+            padding:15px 10px;
+            display:flex;
+            justify-content: center;
+            box-sizing: border-box;
+            border-radius: 100px;
+            color:#fff;
+            background:rgb(212,68,57);
+        }
+    }
+
+    .music_item_container{
+        display:flex;
+        align-items:center;
+      }
+
+}

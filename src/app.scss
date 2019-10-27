@@ -1,0 +1,28 @@
+.at-form{
+    border-bottom-width:0!important;
+}
+
+.at-slider{
+    width:80vw!important;
+}
+
+//进度条按钮
+.weui-slider__handler{
+    width:24px!important;
+    height:24px!important;
+    margin-top:-12px!important;
+    margin-left:-12px!important;
+}
+
+//底部弹出框文字大小
+.taro-scroll-view__scroll-y{
+    font-size:30px!important;
+}
+.at-action-sheet__footer{
+    font-size:30px!important;
+}
+
+//tag
+.at-tag{
+    margin:0 10px;
+}
